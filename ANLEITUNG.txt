@@ -1,0 +1,71 @@
+AUTOHAUS DIL — DIGITALES WERBEDISPLAY
+
+VERÖFFENTLICHUNG
+1. Laden Sie index.html sowie die Ordner assets und media auf Ihren Webserver.
+   Die Dateien können im Hauptverzeichnis oder in einem Unterordner liegen.
+2. Legen Sie Videos und Angebotsbilder im Ordner media ab.
+3. Bearbeiten Sie media/playlist.json. Die Dateinamen müssen einschließlich
+   Groß- und Kleinschreibung mit den vorhandenen Dateien übereinstimmen.
+4. Öffnen Sie die Webseite über HTTPS im Browser des Anzeigegeräts.
+
+BEISPIEL FÜR EINE WIEDERGABELISTE
+[
+  { "file": "Fernseher.mp4", "type": "video" },
+  { "file": "angebot.jpg", "type": "image", "seconds": 10,
+    "alt": "Aktuelles Fahrzeugangebot von Autohaus DIL" }
+]
+angebot.jpg ist ein Beispiel und muss vor der Verwendung hinzugefügt werden.
+Die mitgelieferte Wiedergabeliste enthält fünf vorhandene Videos.
+Die technischen Feldnamen und Werte wie "file", "type", "video" und "image"
+müssen unverändert bleiben. Bildbeschreibungen unter "alt" bitte auf Deutsch angeben.
+
+BEDIENUNG
+Die Einträge werden der Reihe nach wiedergegeben. Danach beginnt die Liste erneut.
+Videos laufen bis zum Ende. Bilder erscheinen standardmäßig zehn Sekunden lang.
+Mit "seconds" lässt sich die Bilddauer zwischen 3 und 300 Sekunden einstellen.
+Videos werden ohne Ton abgespielt. Falls der Browser den automatischen Start
+verhindert, wählen Sie „Wiedergabe starten“.
+
+- Pfeile: vorheriges oder nächstes Angebot anzeigen.
+- Pause / Weiter: Wiedergabe anhalten oder an derselben Stelle fortsetzen.
+- Vollbild: Vollbildmodus starten oder beenden, sofern der Browser dies unterstützt.
+- Weitere Angebote ansehen: Fahrzeugangebote in einem neuen Tab öffnen.
+- Erneut versuchen: ein nicht verfügbares Angebot erneut laden.
+
+Beim Verlassen der Seite wird die Wiedergabe angehalten. Bei der Rückkehr wird
+sie fortgesetzt, sofern sie nicht zuvor manuell pausiert wurde.
+Die Geräteeinstellung für reduzierte Bewegung verhindert den automatischen Start.
+Auch die Navigation mit der Tabulatortaste pausiert die Wiedergabe.
+
+ANGEBOTE AKTUALISIEREN
+Auf dem Webserver wird die Wiedergabeliste alle 60 Sekunden erneut geprüft.
+Bei einer pausierten, bereits geladenen Liste werden Änderungen zurückgestellt.
+Verwenden Sie beim Austausch von Medien neue Dateinamen, damit keine älteren
+Dateien aus dem Browser-Zwischenspeicher angezeigt werden.
+
+LOKALE VORSCHAU
+Sie können index.html direkt im Browser öffnen. Wählen Sie anschließend über
+„Wiedergabeliste“ oben rechts die Datei media/playlist.json aus. Es gibt keine
+zweite, im HTML hinterlegte Liste. Die Auswahl gilt für die aktuelle Sitzung.
+Die Medienpfade beziehen sich auf den Ordner media neben index.html, unabhängig
+vom Speicherort der JSON-Datei. Ungültige Dateien ersetzen eine geladene Liste nicht.
+
+Für das automatische Einlesen von media/playlist.json verwenden Sie einen lokalen
+Webserver. Falls Node.js installiert ist, starten Sie im Projektordner:
+  npm start
+Öffnen Sie anschließend http://localhost:8000 im Browser.
+Eine Paketinstallation ist nicht erforderlich. Beenden Sie die Vorschau mit Strg+C.
+Falls PowerShell npm.ps1 blockiert, verwenden Sie npm.cmd start.
+
+PRÜFUNG
+Falls Node.js installiert ist, starten Sie im Projektordner:
+  npm test
+Das Skript prüft die Wiedergabelogik in einer simulierten Browserumgebung.
+Prüfen Sie Bilddarstellung, Videowiedergabe und Vollbild zusätzlich am Zielgerät.
+Eine Datenbank, PHP und ein Installationsschritt sind nicht erforderlich.
+
+PORTFOLIO-VORSCHAU
+Die Videos sind Beispielmaterial und kein aktueller Fahrzeugbestand.
+Die Weihnachtsaktion enthält ein festes Datum. Prüfen Sie zeitgebundene Inhalte
+vor einem produktiven Einsatz. Marken-Slogans und Modellbezeichnungen bleiben
+im Original erhalten. Bildschirmfotos und Prüfergebnisse liegen im Ordner docs.

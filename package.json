@@ -1,0 +1,10 @@
+{
+  "name": "autohaus-dil-werbedisplay",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Digitales Werbedisplay für Fahrzeugangebote mit Videos und Bildern.",
+  "scripts": {
+    "start": "node serve.cjs",
+    "test": "node verify-player.cjs"
+  }
+}

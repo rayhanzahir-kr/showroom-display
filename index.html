@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="color-scheme" content="only light" />
+    <title>Autohaus DIL — Digitales Werbedisplay</title>
+    <meta
+      name="description"
+      content="Digitales Werbedisplay für Fahrzeugangebote von Autohaus DIL mit Videos, Bildern und einfacher Wiedergabesteuerung."
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header>
+      <img src="assets/logo.jpg" alt="Autohaus DIL" /><button
+        id="choose-playlist"
+        class="playlist-admin"
+        aria-label="Wiedergabeliste öffnen"
+        hidden
+      >
+        Wiedergabeliste
+      </button>
+      <input
+        id="playlist-file"
+        type="file"
+        accept=".json,application/json"
+        aria-label="Wiedergabeliste auswählen"
+        hidden
+      />
+    </header>
+    <main aria-label="Aktuelle Angebote">
+      <h1 class="sr-only">Aktuelle Angebote von Autohaus DIL</h1>
+      <div class="stage" id="stage" aria-busy="true">
+        <video
+          id="video"
+          playsinline
+          muted
+          preload="auto"
+          aria-label="Aktuelle Werbung von Autohaus DIL"
+          hidden
+        ></video>
+        <img id="image" alt="Aktuelles Angebot von Autohaus DIL" hidden />
+        <div id="notice" class="notice">
+          <p id="message" role="status" aria-live="polite" aria-atomic="true">
+            Angebote werden geladen …
+          </p>
+          <button id="resume" hidden>Wiedergabe starten</button>
+          <button id="retry" hidden>Erneut versuchen</button>
+        </div>
+      </div>
+      <nav class="controls" aria-label="Wiedergabe steuern">
+        <button
+          class="control"
+          id="previous"
+          aria-label="Vorheriges Angebot"
+          title="Vorheriges Angebot"
+          disabled
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m15 5-7 7 7 7" />
+          </svg>
+        </button>
+        <button class="control" id="toggle" disabled>
+          <svg id="pause-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 5v14M16 5v14" /></svg
+          ><svg id="play-icon" viewBox="0 0 24 24" aria-hidden="true" hidden>
+            <path d="m8 5 11 7-11 7Z" /></svg
+          ><span id="toggle-label">Pause</span>
+        </button>
+        <button
+          class="control"
+          id="next"
+          aria-label="Nächstes Angebot"
+          title="Nächstes Angebot"
+          disabled
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m9 5 7 7-7 7" />
+          </svg>
+        </button>
+        <span id="counter" aria-label="Noch keine Angebote">– / –</span>
+        <button
+          class="control"
+          id="fullscreen"
+          aria-label="Vollbild starten"
+          title="Vollbild starten"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5" />
+          </svg>
+        </button>
+      </nav>
+      <span
+        id="feedback"
+        class="sr-only"
+        role="status"
+        aria-live="polite"
+      ></span>
+    </main>
+    <footer>
+      <p>Entdecken Sie weitere Fahrzeuge</p>
+      <a
+        id="offers"
+        href="https://www.autohaus-dil.de/angebote/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Weitere Angebote ansehen<svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M14 3h7v7m0-7L10 14M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"
+          /></svg
+      ></a>
+    </footer>
+    <script src="assets/player.js" defer></script>
+  </body>
+</html>
