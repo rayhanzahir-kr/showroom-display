@@ -1,4 +1,4 @@
-# Autohaus DIL — Digital Signage Player
+#Digital Signage Player
 
 A browser-based advertising display for a car dealership, designed for portrait screens and touch controls. It presents a repeating sequence of videos and images, with a German interface and one JSON playlist.
 
